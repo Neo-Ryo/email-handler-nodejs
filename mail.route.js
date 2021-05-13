@@ -7,14 +7,7 @@ const emailRegex = require('./middleware/emailRegex');
 const { emailIntCheck } = require('./middleware/emailRegex');
 const { google } = require('googleapis');
 const OAuth2 = google.auth.OAuth2;
-const {
-  MY_EMAIL,
-  MY_PASSWORD,
-  PRIVATE_KEY,
-  ID_CLIENT,
-  SECRET_CLIENT,
-  REFRESH_TOKEN,
-} = process.env;
+const { MY_EMAIL, ID_CLIENT, SECRET_CLIENT, REFRESH_TOKEN } = process.env;
 
 const myOauth2Client = new OAuth2(
   ID_CLIENT,
@@ -29,15 +22,6 @@ const myAccessToken = myOauth2Client.getAccessToken();
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    // xoauth2: xoauth2.createXOAuth2Generator({
-    //   user: MY_EMAIL,
-    //   scope: 'https://mail.google.com/',
-    //   privateKey: PRIVATE_KEY,
-    //   // service: `https://mail.google.com/ ${PRIVATE_KEY} ${MY_EMAIL}`,
-    //   clientId: ID_CLIENT,
-    //   clientSecret: SECRET_CLIENT,
-    //   refreshToken: REFRESH_TOKEN,
-    // }),
     type: 'OAuth2',
     user: MY_EMAIL,
     clientId: ID_CLIENT,

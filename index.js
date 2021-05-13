@@ -3,8 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const { handleEmail } = require('./mail.route');
-const { google } = require('googleapis');
-const OAuth2 = google.auth.OAuth2;
 
 const hostname = 'localhost';
 const PORT = process.env.PORT || 8000;
