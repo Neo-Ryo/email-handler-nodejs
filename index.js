@@ -3,8 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const { handleEmail } = require('./mail.route');
-
-const hostname = 'localhost';
 const PORT = process.env.PORT || 8000;
 
 app.use(cors());
@@ -18,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, hostname, () => {
-  console.log(`server runnin at ${hostname}:${PORT}`);
+  console.log(`server runnin on ${PORT}`);
 });
 
 module.exports = app;
