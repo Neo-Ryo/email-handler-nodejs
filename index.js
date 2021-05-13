@@ -16,7 +16,7 @@ app.use(express.json());
 app.use('/email', handleEmail);
 
 app.get('/', (req, res) => {
-  res.send('Welcome!!!');
+  res.status(200).json('Welcome!!!');
 });
 
 app.listen(PORT, hostname, () => {
