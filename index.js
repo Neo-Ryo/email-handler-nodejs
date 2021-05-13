@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.status(200).json('Welcome!!!');
 });
 
-app.listen(PORT, hostname, () => {
+app.listen(PORT, () => {
   console.log(`server runnin on ${PORT}`);
 });
 
