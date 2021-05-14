@@ -34,12 +34,12 @@ handleEmail.post(
   '/',
   emailRegex(emailIntCheck, 'invalid email'),
   (req, res) => {
-    const { email, message } = req.body;
+    const { email, subject, message } = req.body;
     const mailOptions = {
       from: email,
       to: MY_EMAIL,
-      subject: 'email from nodemailer',
-      text: message,
+      subject: subject ? subject : 'email from nodemailer',
+      html: `<p>${message}<p>`,
     };
 
     transporter.sendMail(mailOptions, function (err, res) {
